@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <title>KGO</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <section class="header">
+        <img src="images/logo.png">
+    </section>
+
+    <!-- About the website-->
+    <div class="about-container">
+
+        <div class="image-container">
+            <img src="images/sample.jpg" alt="About KGO">
+        </div>
+
+        <div class="about-content">
+            <h1>Know Where to Go </h1>
+            <p>If you love to travel by flight, specifically by jets, you've come to the right place. KGO (Know where to go)
+                aims to help you aerophiles by providing information on jet flight information. While flying by jet
+                is a luxury, keeping up to date with prices and other flight information can be a hassle. It isn't also
+                always the easiest task to determine whether jet flights are available to a destination. KGO solves these problems 
+                for you by searching for airports within an 800 km radius of your location and a specified destination
+                anywhere around the world. Among other useful information, KGO provides information on rates and top speeds of jets of varying types
+                making it easier for you to determine what jet to book next. So whether you're a jet flight connoisseur or dreaming to get in a jet
+                on your next flight, KGO will help you get ready to embark on your unforgettable journeys, one takeoff at a time.
+            </p>
+        </div>
+    </div>
+
+    <section id="flight-generation">
+        <!-- For pinpointing a location -->
+        
+        <div class="fa-title">
+            <img src="images/travel-icon.png" alt="Travel Icon">
+
+            <div class="fa-title-text">
+                <h2>Pinpoint Location</h1>
+                    <p>Drag the pin to your desired location</p>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div id="map"></div>
+
+        <div class="fa-title">
+            <img src="images/Key.png" alt="">
+
+            <div class="fa-title-text">
+                <h2>Select a Key</h1>
+                <p>Select an API key from those provided</p>
+            </div>
+        </div>
+
+        <div id="button-container">
+            <div class="button-row">
+                <button class="api-key-button" id="button1">Key 1</button>
+                <button class="api-key-button" id="button2">Key 2</button>
+                <button class="api-key-button" id="button3">Key 3</button>
+            </div>
+            <div class="button-row">
+                <button class="api-key-button" id="button4">Key 4</button>
+                <button class="api-key-button" id="button5">Key 5</button>
+                <button class="api-key-button" id="button6">Key 6</button>
+            </div>
+        </div>
+
+        <div id="selectedAPIKeyContainer"> 
+            <h3 id="selectedAPIKeyResult"> </h3>
+        </div>
+
+        <br>
+
+        <!-- For choosing a destination -->
+        <div id="destination">
+            <div class="fa-title">
+                <img src="images/destination-icon.png" alt="Destination Icon">
+                <div class="fa-title-text">
+                    <h2>Destination</h1> 
+                    <p>Retreive the address of your pinpointed location</p>
+                </div>           
+            </div>
+            <div class="text1-container">
+                <input type="text" id ="cityName" placeholder="" name="Location">
+
+                <div class="input-method">
+                    <input type="radio" name="inputMethod" id="pinpointMethod" checked>
+                    <label for="pinpointMethod">Use Pinpoint</label>
+                    <input type="radio" name="inputMethod" id="addressMethod">
+                    <label for="addressMethod">Use Address</label>
+                </div>
+                
+            </div>
+            <!-- For error handling -->
+            <div id="error" class="error"></div>
+            <button id="checkFlight">Check Flight</button> <!-- Added "Check Flight" button -->
+        </div>
+
+        <!-- For retrieved flight information -->
+        <div class="fa-title">
+            <img src="images/airplane-icon.png" alt="airplane-icon">
+            <div class="fa-title-text">
+                <h2>Jets Available</h2>
+                <p>Scan through the available jets to your chosen destination</p>
+            </div>
+        </div>
+    
+        <!-- For search and sort functions -->
+        <div id=fa-search-and-sort>
+            <div id=fa-search-bar>
+                <input type="text" id="jetTypeSearch" placeholder="Search for a jet..." name="Search">
+                <button type="submit"><img src="images/search-bar-icon.png"></button>
+            </div>
+            <div id=fa-sort>
+                <label for="fa-sort-drop-down">Sort by Price:</label>
+                <select name="pricing-options" id="fa-sort-drop-down">
+                    <option value="l-h">Lowest - Highest</option>
+                    <option value="h-l">Highest - Lowest</option>
+                </select>
+            </div>
+        </div>
+
+        </div>
+        <div id="fa-to-and-from">
+        </div>
+        <div id="fa-flights-list">
+        </div>
+    </section>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
